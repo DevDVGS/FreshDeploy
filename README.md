@@ -1,5 +1,10 @@
 # FreshDeploy
 
+[![CI](https://github.com/DevDVGS/FreshDeploy/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/DevDVGS/FreshDeploy/actions/workflows/ci.yml)
+[![npm beta](https://img.shields.io/npm/v/@devdags/freshdeploy/beta?label=npm%20beta)](https://www.npmjs.com/package/@devdags/freshdeploy)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![Node.js](https://img.shields.io/badge/Node.js-20%2B-339933)](https://nodejs.org/)
+
 **Verify what you ship.** Minimal post-deployment verification with a compact live widget.
 
 Node.js 20+ · MIT · English / Español
