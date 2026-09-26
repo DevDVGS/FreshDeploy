@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "freshdeploy": "node packages/cli/bin/freshdeploy.js",
-    "test": "node --test tests/*.test.js",
+    "test": "node --test",
     "check": "node --check packages/core/src/index.js && node --check packages/cli/src/cli.js && node --check packages/widget/src/index.js && node --check packages/widget/src/state.js && node --check packages/widget/src/i18n.js && node --check packages/cli/src/sse.js && node --check packages/cli/src/templates/after-build.mjs && node --check packages/adapters/src/index.js && node --check tests/v050.test.js && node --check scripts/release-check.mjs",
     "demo": "node packages/cli/bin/freshdeploy.js init --url https://example.com",
     "preview:report": "node scripts/build-preview-report.js",

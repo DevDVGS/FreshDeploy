@@ -219,7 +219,8 @@ if (import.meta.env.PROD) mountFreshDeploy({
     // Official v0.3.0 generated mount and the official React trial mount.
     '0616f92b579c8ada2e22a20e09525a1223cc9d17ed112fb4ca4c4a159ce4b8a5',
     '14d15370349335efd4d4d3b4688ec559fb1247dcba9e18260f24e12907618a5f',
-  ]).has(await shaFile(mountFile))){
+  ]).has(createHash('sha256').update((await fs.readFile(mountFile,'utf8')).replace(/\r\n/g,'\n')).digest('hex'))){
+    // Match official legacy mounts regardless of Git's Windows CRLF conversion.
     const backup=`${mountFile}.freshdeploy.bak`;
     if(!fsSync.existsSync(backup))await fs.copyFile(mountFile,backup);
     await fs.writeFile(mountFile,mount);

@@ -108,7 +108,9 @@ test('official v0.3 trial mount upgrades in place without replacing App.jsx or d
     assert.equal(call(dir,'setup','--url','http://localhost:8081/').status,0);
     const mount=path.join(dir,'src/freshdeploy/mount.js');
     await fs.copyFile(path.resolve('tests/fixtures/v030-trial-mount.js.txt'),mount);
-    const previous=await fs.readFile(mount,'utf8');
+    // Git may check out the original fixture with CRLF on Windows.
+    const previous=(await fs.readFile(mount,'utf8')).replace(/\r?\n/g,'\r\n');
+    await fs.writeFile(mount,previous);
     assert.doesNotMatch(previous,/serverIntervalSeconds/);
     const result=call(dir,'setup');assert.equal(result.status,0,result.stderr);
     const updated=await fs.readFile(mount,'utf8');
@@ -118,6 +120,11 @@ test('official v0.3 trial mount upgrades in place without replacing App.jsx or d
     assert.equal((entry.match(/freshdeploy\/mount\.js/g)||[]).length,1);
     const script=await fs.readFile(path.join(dir,'scripts/freshdeploy-build-meta.mjs'),'utf8');
     assert.match(script,/scripts\/\.freshdeploy-build-meta.json/);
+    // Repeated setup must preserve developer-modified mounts, including on Windows.
+    await fs.appendFile(mount,'\n// user customization\n');
+    const customized=await fs.readFile(mount,'utf8');
+    assert.equal(call(dir,'setup').status,0);
+    assert.equal(await fs.readFile(mount,'utf8'),customized);
   }finally{await fs.rm(dir,{recursive:true,force:true});}
 });
 
