@@ -1,0 +1,14 @@
+{
+  "name": "@devdags/freshdeploy-widget",
+  "version": "0.5.0-beta.1",
+  "description": "Optional browser-side deployment status widget",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.js",
+    "./i18n": "./src/i18n.js"
+  },
+  "files": [
+    "src"
+  ]
+}

@@ -1,0 +1,38 @@
+# Dependencies and build artifacts
+node_modules/
+dist/
+build/
+coverage/
+.vite/
+*.log
+*.tgz
+*.zip
+.DS_Store
+
+# Secrets and local configuration
+.env
+.env.*
+!*.example
+.npmrc
+freshdeploy.config.json
+scripts/.freshdeploy-build-meta.json
+*.freshdeploy.bak
+
+# Local manifests and reports (any directory)
+**/.freshdeploy.json
+**/.freshdeploy-report.json
+**/freshdeploy-report*.json
+**/freshdeploy-monitor-private.json
+**/freshdeploy-private*.json
+**/freshdeploy-*.manifest.json
+# Deliberate, sanitized demonstration fixtures
+!preview/.freshdeploy.json
+!preview/.freshdeploy-report.json
+
+# Generated only for npm packaging
+/packages/cli/vendor/
+/packages/cli/LICENSE
+/packages/cli/docs/
+
+/preview/.freshdeploy.json
+/preview/.freshdeploy-report.json

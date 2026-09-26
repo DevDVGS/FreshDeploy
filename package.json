@@ -1,0 +1,21 @@
+{
+  "name": "freshdeploy-monorepo",
+  "version": "0.5.0-beta.1",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "freshdeploy": "node packages/cli/bin/freshdeploy.js",
+    "test": "node --test tests/*.test.js",
+    "check": "node --check packages/core/src/index.js && node --check packages/cli/src/cli.js && node --check packages/widget/src/index.js && node --check packages/widget/src/state.js && node --check packages/widget/src/i18n.js && node --check packages/cli/src/sse.js && node --check packages/cli/src/templates/after-build.mjs && node --check packages/adapters/src/index.js && node --check tests/v050.test.js && node --check scripts/release-check.mjs",
+    "demo": "node packages/cli/bin/freshdeploy.js init --url https://example.com",
+    "preview:report": "node scripts/build-preview-report.js",
+    "pack:cli": "npm pack --workspace @devdags/freshdeploy",
+    "release:check": "node scripts/release-check.mjs"
+  }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="freshdeploy-version" content="0.5.0-beta.1">
+  <title>FreshDeploy / Preview</title>
+  <style>
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:#0d1117;color:#e6edf3;font:14px/1.55 ui-monospace,Consolas,monospace;display:grid;place-items:center;padding:24px}
+    main{width:min(620px,100%)}.eyebrow{font-size:12px;letter-spacing:.08em;color:#8b949e}h1{font-size:37px;letter-spacing:-.04em;margin:16px 0 8px;font-weight:650}p{color:#8b949e;margin:0}.bar{height:1px;background:#30363d;margin:32px 0}.command{background:#161b22;border:1px solid #30363d;border-radius:8px;padding:18px;color:#c9d1d9}.ok{color:#3fb950}.tip{font-size:12px;margin-top:16px}
+  </style>
+</head>
+<body>
+<main>
+  <div class="eyebrow">DAGS / OPEN SOURCE</div>
+  <h1>FreshDeploy<span class="ok">.</span></h1>
+  <p>Verify what you ship. A lightweight deployment check for modern web projects.</p>
+  <div class="bar"></div>
+  <div class="command">$ freshdeploy check --public-report .freshdeploy-report.json<br>Viewing a locally generated post-deploy report. Click the status indicator for details.</div>
+  <p class="tip">A warning is expected here: the sample server does not set Cache-Control. No status is hardcoded.</p>
+</main>
+<script type="module">
+  import { mountFreshDeploy } from '../packages/widget/src/index.js';
+  mountFreshDeploy({ expectedVersion:'0.5.0-beta.1', manifestUrl:'./.freshdeploy.json', reportUrl:'./.freshdeploy-report.json', pollIntervalMs: 3000 });
+</script>
+</body>
+</html>

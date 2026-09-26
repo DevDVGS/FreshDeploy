@@ -1,0 +1,44 @@
+{
+  "name": "@devdags/freshdeploy",
+  "version": "0.5.0-beta.1",
+  "description": "Verify deployed web builds, asset integrity and version changes with an optional live widget.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "freshdeploy": "./bin/freshdeploy.js"
+  },
+  "files": [
+    "bin",
+    "src",
+    "vendor",
+    "README.md",
+    "docs",
+    "scripts",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "prepack": "node scripts/prepare-package.mjs"
+  },
+  "keywords": [
+    "deployment",
+    "verification",
+    "vite",
+    "integrity",
+    "cli",
+    "sse"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DevDVGS/FreshDeploy.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DevDVGS/FreshDeploy/issues"
+  },
+  "homepage": "https://github.com/DevDVGS/FreshDeploy#readme"
+}

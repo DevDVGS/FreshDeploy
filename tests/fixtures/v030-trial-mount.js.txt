@@ -1,0 +1,12 @@
+/** Production-only widget; checks are performed by the monitor, never the browser. */
+import { mountFreshDeploy } from './index.js';
+if (import.meta.env.PROD) mountFreshDeploy({
+  expectedVersion: import.meta.env.VITE_FD_VERSION,
+  manifestUrl: `${import.meta.env.BASE_URL}.freshdeploy.json`,
+  reportUrl: `${import.meta.env.BASE_URL}.freshdeploy-report.json`,
+  language: 'en',
+  pollIntervalMs: 1000,
+  maxReportAgeMs: 60000,
+  sseUrl: import.meta.env.VITE_FD_SSE_URL || null,
+  mode: 'auto',
+});
