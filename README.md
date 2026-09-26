@@ -25,6 +25,43 @@ npx @devdags/freshdeploy@beta check     # check the deployed site afterwards
 
 For live monitoring on a trusted machine, run `freshdeploy watch --live`. SSE is optional; polling is the fallback. A static site requires a post-deploy job or persistent monitor to generate updated reports.
 
+## Screenshots
+
+Real screenshots from the FreshDeploy local preview.
+
+### 1. Deployment warning
+
+The demo reports a caching warning while verifying the deployed asset.
+
+![FreshDeploy widget showing a deployment warning](docs/images/01-widget-warning.jpg)
+
+### 2. Integrity failure detected
+
+FreshDeploy detects a modified file: asset verification changes from 1/1 to 0/1.
+
+![FreshDeploy detecting an integrity failure](docs/images/02-widget-fail.png)
+
+### 3. Integrity restored
+
+After restoring the original file, asset verification returns to 1/1. The demo retains its expected caching warning.
+
+![FreshDeploy widget after integrity recovery](docs/images/03-widget-recovered.png)
+
+### Additional views
+
+<details>
+<summary>Widget settings and live terminal monitoring</summary>
+
+**Widget settings**
+
+![FreshDeploy widget settings](docs/images/04-widget-settings.png)
+
+**Live monitor — warning, failure and recovery**
+
+![FreshDeploy real terminal monitoring](docs/images/05-terminal-watch.png)
+
+</details>
+
 ## Configure
 
 ```bash
